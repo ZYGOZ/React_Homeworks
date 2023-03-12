@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 .App {
-  background-color: white;
+  background-color: #363636;
   text-align: center;
   font-family: 'Poppins', sans-serif;
 }
@@ -40,12 +40,25 @@
   }
 }
 
+#container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  word-wrap: break-word;
+  background-color: var(--container-bg-color);
+}
+
+body {
+  font-family: var(--main-font-family);
+  color: var(--body-text-color);
+  font-size: var(--main-font-size);
+}
+
 .item.left {
   display: block;
   border-right: solid #ccc 1px;
   max-width: 160px;
   min-width: 160px;
-  display: none;
 }
 
 .filetree {
@@ -61,6 +74,15 @@
   list-style-type: none;
 }
 
+.filetree li.closed ul{
+  display: none;
+  transition: all .5s ease-in-out;
+
+}
+.filetree li.closed ul:target{
+  height: 100%;
+}
+
 .filetree li {
   margin: 5px 0;
   cursor: pointer;
@@ -70,9 +92,6 @@
   display: table;
 }
 
-.filetree li.opened span.folder {
-  margin-left: 16px;
-}
 .filetree span.folder, .filetree span.file {
   padding: 1px 0 1px 20px;
 }
